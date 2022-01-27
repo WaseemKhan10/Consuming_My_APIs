@@ -1,0 +1,84 @@
+﻿@model Consuming_My_APIs.Models.ModelEmployee
+
+@{
+    ViewData["Title"] = "";
+}
+
+<div style="border:1px solid #ebebeb;border-radius:10px;padding:20px;margin-top:10px" class="border-bottom box-shadow mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div style="text-align:center;font-size:50px;padding:10px">
+                <i class="fas fa-users"></i>
+            </div>
+            <h4 style="text-align:center">Create New Employee</h4>
+            <hr />
+        </div>
+    </div>
+    <form asp-action="Add">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="EmployeeID" class="control-label"></label>
+                    <input asp-for="EmployeeID" class="form-control" placeholder="Employee ID?" />
+                    <span asp-validation-for="EmployeeID" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="EmployeeName" class="control-label"></label>
+                    <input asp-for="EmployeeName" class="form-control" placeholder="Employee Name?"  />
+                    <span asp-validation-for="EmployeeName" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="EmployeePhone" class="control-label"></label>
+                    <input asp-for="EmployeePhone" class="form-control"  placeholder="Employee Phone No?" />
+                    <span asp-validation-for="EmployeePhone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+
+                <div class="form-group">
+                    <label asp-for="EmployeeAddress" class="control-label"></label>
+                    <input asp-for="EmployeeAddress" class="form-control" placeholder="Employee Residence Address?"  />
+                    <span asp-validation-for="EmployeeAddress" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="row justify-content-center">
+
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label asp-for="EmployeeDept" class="control-label"></label>
+                    <input asp-for="EmployeeDept" class="form-control" placeholder="Employee Department?"  />
+                    <span asp-validation-for="EmployeeDept" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="row justify-content-center">
+
+            <div class="col-md-2">
+                <hr />
+                <div class="form-group">
+                    <input type="submit" style="width:100%" value="Create" class="btn btn-dark" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-light">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

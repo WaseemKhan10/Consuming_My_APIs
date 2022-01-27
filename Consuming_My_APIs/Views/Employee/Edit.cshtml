@@ -1,0 +1,79 @@
+﻿@model IList<Consuming_My_APIs.Models.ModelEmployee>
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div style="border:1px solid #ebebeb;border-radius:10px;padding:20px;margin-top:10px" class="border-bottom box-shadow mb-3">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div style="text-align:center;font-size:50px;padding:10px">
+                <i class="fas fa-users"></i>
+            </div>
+            <h4 style="text-align:center">Update Employee Details</h4>
+            <hr />
+        </div>
+    </div>
+
+    @using (Html.BeginForm("EditDetails", "Employee", FormMethod.Post))
+    {
+        @for (var i = 0; i < Model.Count(); i++)
+        {
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        @Html.DisplayNameFor(modelItem => Model[i].EmployeeID)<br />
+                        @Html.TextBoxFor(modelItem => Model[i].EmployeeID,new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.DisplayNameFor(modelItem => Model[i].EmployeeName)<br />
+                        @Html.TextBoxFor(modelItem => Model[i].EmployeeName,new { @class = "form-control" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.DisplayNameFor(modelItem => Model[i].EmployeePhone)<br />
+                        @Html.TextBoxFor(modelItem => Model[i].EmployeePhone,new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.DisplayNameFor(modelItem =>Model[i].EmployeeAddress)<br />
+                        @Html.TextBoxFor(modelItem => Model[i].EmployeeAddress,new { @class = "form-control" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="row justify-content-center">
+
+                <div class="col-md-8">
+                    <div class="form-group">
+                        @Html.DisplayNameFor(modelItem => Model[i].EmployeeDept)
+                        @Html.TextBoxFor(modelItem => Model[i].EmployeeDept,new { @class = "form-control" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="row justify-content-center">
+
+                <div class="col-md-2">
+                    <hr />
+                    <div class="form-group">
+                        <input type="submit" style="width:100%" value="Update" class="btn btn-dark" />
+                    </div>
+                </div>
+            </div>
+           
+
+        }
+    }
+</div>
+ <div>
+                <a asp-action="Index" class="btn btn-light">Back to List</a>
+            </div>
